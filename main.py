@@ -140,6 +140,8 @@ class Screen1(Screen):
         name = self.txt_input.text
         ruffier_test.name = name
         age = self.txt_input2.text
+        age = age.replace(' ', '')
+        age = age.replace('\n', '')
         if age.isdigit():
             ruffier_test.age = int(age)
             self.txt_input.text = ''
@@ -165,6 +167,8 @@ class Screen2(Screen):
 
     def get_heartbeat1(self):
         heartbeat1 = self.txt_input.text
+        heartbeat1 = heartbeat1.replace(' ', '')
+        heartbeat1 = heartbeat1.replace('\n', '')
         if heartbeat1.isdigit():
             ruffier_test.heartbeat1 = int(heartbeat1)
             self.txt_input.text = ''
@@ -191,6 +195,8 @@ class Screen3(Screen):
 
     def get_heartbeat2(self):
         heartbeat2 = self.txt_input.text
+        heartbeat2 = heartbeat2.replace(' ', '')
+        heartbeat2 = heartbeat2.replace('\n', '')
         if heartbeat2.isdigit():
             ruffier_test.heartbeat2 = int(heartbeat2)
             self.txt_input.text = ''
@@ -216,6 +222,8 @@ class Screen4(Screen):
 
     def get_heartbeat3(self):
         heartbeat3 = self.txt_input.text
+        heartbeat3 = heartbeat3.replace(' ', '')
+        heartbeat3 = heartbeat3.replace('\n', '')
         if heartbeat3.isdigit():
             ruffier_test.heartbeat3 = int(heartbeat3)
             self.txt_input.text = ''
