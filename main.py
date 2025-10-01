@@ -139,6 +139,8 @@ class Screen1(Screen):
     def get_name_and_age(self):
         name = self.txt_input.text
         ruffier_test.name = name
+        if ruffier_test.name == '':
+            ruffier_test.name = name.replace('', 'Anonymous')
         age = self.txt_input2.text
         age = age.replace(' ', '')
         age = age.replace('\n', '')
@@ -235,14 +237,14 @@ class Screen5(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         root = BoxLayout(orientation='vertical')
-        txt1 = Label(text='Thank you for taking the test!\n Click to calculate your results.')
+        self.txt1 = Label(halign='center',text='Thank you for taking the test!\nClick to calculate your results.')
         self.txt2 = Label(text='results')
         btn1 = NextButton(text='calculate results', function=self.result)
         btn2 = NextButton(text='again', target='screen1', direction='right', function=self.again)
 
         layout = BoxLayout()
 
-        root.add_widget(txt1)
+        root.add_widget(self.txt1)
         root.add_widget(self.txt2)
         root.add_widget(btn1)
         root.add_widget(btn2)
@@ -252,6 +254,7 @@ class Screen5(Screen):
     def result(self):
         grade = ruffier_test.result()
         self.txt2.text = str(grade)
+        self.txt1.text = ruffier_test.name + ',' + " " + 'thank you for taking the test!\n Click to calculate your results.'
 
     def again(self):
         self.txt2.text = ''
